@@ -1,0 +1,46 @@
+.contributors-wraper .contributors {
+    padding: 0;
+}
+  
+.contributors-wraper .contributors li {
+    display: inline-block;
+    text-transform: capitalize;
+    margin-right: 10px;
+    text-align: center;
+}
+  
+.contributors-wraper .contributors li a {
+    color: #1a1a1a;
+    font-size: 14px;
+    letter-spacing: .5px;
+}
+  
+.contributors-wraper h5 {
+    font-size: 13px;
+    font-size: 0.7125rem;
+    color: #767676;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+  
+.contributors-wraper hr {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(84, 84, 84, 0.14)), color-stop(rgba(51, 51, 51, 0.56)), to(rgba(84, 84, 84, 0.14)));
+    background-image: linear-gradient(to right, rgba(84, 84, 84, 0.14), rgba(51, 51, 51, 0.56), rgba(84, 84, 84, 0.14));
+    background-color: transparent;
+}
+  
+.contributors-wraper .rt-avatar {
+    text-align: center;
+}
+  
+.contributors-wraper .rt-avatar img {
+    border-radius: 50%;
+}
+  
+div#rt_authordiv .inside label {
+    font-size: 14px;
+    vertical-align: baseline;
+}
