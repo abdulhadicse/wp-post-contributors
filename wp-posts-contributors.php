@@ -148,13 +148,13 @@ final class Wp_Posts_Contributors {
                 value="<?php echo esc_attr($user_id); ?>"
                 <?php echo $checked; ?> 
             />
-            <label id="label-<?php echo esc_attr($user_id); ?>"><?php echo $user->display_name; ?></label>
+            <label id="label-<?php echo esc_attr($user_id); ?>"><?php echo esc_html( $user->display_name ) ; ?></label>
 
         <?php echo '</br>';       
             }
         }
         else {
-            echo 'No users found.';
+            echo __( 'No users found.', 'wp-posts-contributors');
         }
     }
 
@@ -179,7 +179,7 @@ final class Wp_Posts_Contributors {
 			return $post_id;
 		}
         // verify user input data
-        $contributors      = isset( $_POST['contributors'] ) ? $_POST['contributors'] : [];
+        $contributors      = isset( $_POST['contributors'] ) ? sanitize_text_field( $_POST['contributors'] ) : [];
         //update data into db
         update_post_meta( $post_id, 'wppc_post_author', $contributors );
     }
@@ -201,7 +201,7 @@ final class Wp_Posts_Contributors {
             ob_start();
             ?>
                 <div class="contributors-wraper">
-                    <h5><?php echo _e('Contributors:', 'wp-posts-contributors'); ?></h5>
+                    <h5><?php echo __('Contributors:', 'wp-posts-contributors'); ?></h5>
                     <hr>
                     <ul class="contributors">
                     <?php
@@ -209,9 +209,9 @@ final class Wp_Posts_Contributors {
                             foreach ($get_meta as $id) {
                                 $user = get_user_by('ID', $id);?>
                                 <li>
-                                    <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta( 'ID' ) )); ?>"> 
+                                    <a href="<?php echo esc_url( get_author_posts_url(get_the_author_meta( 'ID' ) )); ?>"> 
                                     <div class="rt-avatar"><?php echo get_avatar($user, 55); ?></div> 
-                                    <div class="contributor-name"><?php echo $user->display_name; ?></div>
+                                    <div class="contributor-name"><?php echo esc_html( $user->display_name ); ?></div>
                                     </a>
                                 </li>
                             <?php
